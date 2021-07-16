@@ -32,8 +32,8 @@ Python's extensive standard library.
         - dict
         - set
     - Syntax:
-        - assignment (regular, augmented, unpacking)
-        - arithmetic (+, -, *, /, %, **)
+        - assignment (regular, augmented, unpacking, chained)
+        - arithmetic (+, -, *, /, //, %, **)
         - boolean (and, or, not)
         - bitwise (&, |, ^, ~, <<, >>)
         - comparison (==, !=, <, <=, >, >=, chaining)
@@ -66,7 +66,6 @@ Python's extensive standard library.
     - instance methods (self - because explicit is better than implicit)
     - magic methods and operator overloading
 - Conway's Game of Life:
-    - finite and infinite grids
     - implementing the rules
     - displaying our grid
     - building a UI
