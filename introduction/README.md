@@ -12,12 +12,12 @@ Python's extensive standard library.
 - no Python knowledge is assumed
 
 ### Outline
-- Philosophy:
-    - Zen of Python
-    - pythonic code
+- Introduction:
     - multi-paradigm
     - duck typing
-    - batteries included 
+    - Zen of Python (import this)
+    - pythonic code
+    - batteries included (https://docs.python.org/3/library/index.html)
 - Basics:
     - Interactive Interpreter: python and ipython
     - Variables: references, not values!
@@ -47,7 +47,7 @@ Python's extensive standard library.
         - if/elif/else (truthyness and falsyness)
         - while/for
         - break/continue
-        - try/except/finally
+        - raise, try/except/finally
         - assert
         - def
         - return
@@ -67,5 +67,5 @@ Python's extensive standard library.
     - magic methods and operator overloading
 - Conway's Game of Life:
     - implementing the rules
-    - displaying our grid
-    - building a UI
+    - professional-grade text UI
+    - a (very) basic CLI
