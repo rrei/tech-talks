@@ -6,6 +6,9 @@ class Point:
         self.x = x
         self.y = y
 
+    def __repr__(self):
+        return f"{type(self).__name__}({self.x}, {self.y})"
+
     def __iter__(self):
         return iter((self.x, self.y))
 

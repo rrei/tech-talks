@@ -20,7 +20,7 @@ ask_ok(retries=2, prompt="Is this talk awesome?", reminder="Think carefully...")
 
 
 def prod(*nums):
-    result = 0
+    result = 1
     for num in nums:
         result *= num
     return result
