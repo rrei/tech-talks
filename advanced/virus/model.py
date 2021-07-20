@@ -1,13 +1,21 @@
-def person(sim):
-    yield max(0, sim.rng.normal(1, 1))
-    yield enter_club(sim)
+from des import Resource, Simulation, Process
 
 
-def enter_club(sim):
-    club = sim.get("club")
-    drinks = 0
-    yield club.enter()
-    while sim.rng.random() < 1 - 1 / (1 + drinks):
-        yield sim.rng.normal(0.5, 0.1)
-        yield club.get_drink()
-    yield club.leave()
+def model(*args, **kwargs):
+    sim = Simulation(*args, **kwargs)
+    clubs = {
+        "Hacienda": Resource(capacity=5000),
+        "Studio 54": Resource(capacity=4000),
+        "Paradise Garage": Resource(capacity=3000),
+    }
+    sim.launch(customers(clubs))
+    return sim
+
+
+
+def customers(clubs):
+    pass
+
+
+# mandatory mask
+# distancing <=> capacity
