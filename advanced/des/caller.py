@@ -2,22 +2,21 @@ import functools
 import itertools
 from collections.abc import Iterable
 
+from .actions import Process
+
 
 class Caller:
     def __init__(self, simulation, func, *args, **kwargs):
         self.simulation = simulation
         self.target = functools.partial(func, *args, **kwargs)
-        self.intervals = None
+        self.process = None
 
     def interval(self, span, *args, **kwargs):
-        self.intervals = _intervals(self.simulation.rng, span, args, kwargs)
-        return self  # NOTE: to allow call chaining
+        intervals = _intervals(self.simulation.rng, span, args, kwargs)
+        return Process(generator=self._run(intervals), simulation=self.simulation)
 
-    def start(self):
-        self.simulation.launch(self._run())
-
-    def _run(self):
-        for interval in self.intervals:
+    def _run(self, intervals):
+        for interval in intervals:
             yield interval
             self.target()
 

@@ -18,8 +18,15 @@ def player(name, ball, miss_prob=0.05):
 def ping_pong(*args, **kwargs):
     ball = Resource()
     sim = Simulation(*args, **kwargs)
-    sim.launch(player("ping", ball) & player("PONG", ball) & player("f00b4r", ball))
+    sim.launch(
+        sim.caller(lambda: print(f"--- t={sim.time} ---")).interval(1)
+        & player("ping", ball)
+        & player("PONG", ball)
+        & player("f00b4r", ball)
+    )
     return sim
 
 
-ping_pong().run()
+sim = ping_pong()
+if __name__ == "__main__":
+    sim.run()
