@@ -19,11 +19,13 @@ x_min <= x <= x_max
 
 # membership
 10 in tail
-head not in tail
+head not in tail  # pythonic
+not head in tail  # non-pythonic
 
 # identity
 a is None
-x is not None
+x is not None  # pythonic
+not x is None  # non-pythonic
 
 # indexing and slicing
 tail[0]
@@ -84,6 +86,8 @@ try:
 except ZeroDivisionError as error:
     y = "oops"
     raise RuntimeError("they came from... behind") from error
+else:
+    print("success!")
 finally:
     print(y)
 

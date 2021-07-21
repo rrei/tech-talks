@@ -25,6 +25,7 @@ def prod(*nums):
         result *= num
     return result
 
+
 prod(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 prod(*range(1, 11))
 
@@ -40,3 +41,10 @@ artificial_kwargs_example(
     hello="world",
     foo="bar",
 )
+my_dict = {
+    "x": False,
+    "y": 42,
+    "hello": "world",
+    "foo": "bar",
+}
+artificial_kwargs_example(**my_dict)
