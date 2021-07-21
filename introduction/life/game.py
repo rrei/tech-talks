@@ -10,6 +10,31 @@ class Life(set):
         life.add(p)  # setting a cell as alive
     """
 
+    def __repr__(self):
+        return self.repr()
+
+    def repr(self, rect=None, alive="#", dead="."):
+        """Build a string representation of the rectangular region defined by `rect`
+        (a 4-tuple `(x0, x1, y0, y1)`) using symbols `alive` and `dead`. If omitted,
+        `rect` defaults to the result of `.bbox()`.
+        """
+        x0, x1, y0, y1 = rect or self.bbox()
+        return "\n".join(
+            "".join(alive if (x, y) in self else dead for x in range(x0, x1))
+            for y in range(y0, y1)
+        )
+
+    def bbox(self):
+        """Compute and return the (tightest) rectangular bounding box of all living
+        cells in this grid as a 4-tuple `(x0, x1, y0, y1)`.
+        """
+        return (
+            min(x for x, _ in self),
+            max(x for x, _ in self),
+            min(y for _, y in self),
+            max(y for _, y in self),
+        )
+
     def tick(self):
         """Return a new state representing the next generation of this Game of Life.
         Note that this is done in one go for the whole grid, i.e. rules are applied

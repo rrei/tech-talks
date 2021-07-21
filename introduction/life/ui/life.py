@@ -81,18 +81,15 @@ class LifeTextUI(TextUI):
         self.frame_count += 1
 
     def _draw(self):
-        x0, x1, y0, y1 = self.viewport()
         self.screen.clear()
         self.screen.addstr(
             f"x={self.x}  y={self.y}  "
             f"generation={self.generation}  alive={len(self.life)}  "
             f"{self.state.name}@{self.refresh_rate / 10:.02f}Hz\n"
         )
-        for y in range(y0, y1):
-            for x in range(x0, x1):
-                self.screen.addstr(ALIVE if (x, y) in self.life else DEAD)
-            self.screen.addstr("\n")
-        self.screen.addstr("\n".join(line.center(curses.COLS - 1) for line in CONTROLS))
+        self.screen.addstr(self.life.repr(rect=self.viewport(), alive=ALIVE, dead=DEAD))
+        for line in CONTROLS:
+            self.screen.addstr(f"\n{line.center(curses.COLS - 1)}")
         self.screen.refresh()
 
     def input(self, key):
