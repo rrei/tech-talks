@@ -25,7 +25,6 @@ class TextUI:
 
     def start(self, paused=False):
         assert self.is_stopped
-        assert self.screen is None
         self.state = TextUIState.PAUSED if paused else TextUIState.RUNNING
         return curses.wrapper(self.mainloop)
 
