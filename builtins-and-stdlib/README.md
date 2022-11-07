@@ -64,3 +64,5 @@ In addition to the message files, we also know the encryption algorithm and a fe
 * The message's checksum is 12627. The checksum can be obtained by multiplying the components of each vector in the payload, then adding together those products, and finally getting the remainder of integer division by the size of the payload.
 
 ![](images/yoda.jpeg)
+
+The talk contents can be found at  https://github.com/rrei/tech-talks/tree/master/builtins-and-stdlib.
